@@ -1,0 +1,14 @@
+﻿@model IEnumerable<CinemaProject.Models.Movie>
+
+@{
+    ViewData["Title"] = "Список фильмов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Список фильмов</h1>
+<ul>
+    @foreach (var movie in Model)
+    {
+        <li><a href="/Movies/Details?title=@movie.Title">@movie.Title</a></li>
+    }
+</ul>

@@ -1,0 +1,32 @@
+﻿@model CinemaProject.Models.Movie
+
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.Title</h1>
+<p><strong>Режиссер:</strong> @Model.Director</p>
+<p><strong>Год:</strong> @Model.Year</p>
+<p><strong>Описание:</strong> @Model.Description</p>
+
+<h2>Сеансы</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Дата</th>
+            <th>Время</th>
+            <th>Цена билета</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var session in Model.Sessions)
+        {
+            <tr>
+                <td>@session.Date.ToShortDateString()</td>
+                <td>@session.Time</td>
+                <td>@session.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
